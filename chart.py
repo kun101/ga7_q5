@@ -37,7 +37,8 @@ df = pd.DataFrame(data, columns=["Month", "Segment", "Revenue"])
 sns.set_style("whitegrid")
 sns.set_context("talk")
 
-plt.figure(figsize=(8, 8))  # ensures 512x512 with dpi=64
+# IMPORTANT: dpi * figsize = 512
+fig = plt.figure(figsize=(8, 8), dpi=64)
 
 sns.lineplot(
     data=df,
@@ -55,7 +56,8 @@ plt.xticks(rotation=45)
 plt.legend(title="Customer Segment", loc="upper left")
 
 # -----------------------
-# Save chart
+# Save chart (force exact size)
 # -----------------------
-plt.savefig("chart.png", dpi=64, bbox_inches="tight")
+# bbox_inches="tight" can shrink canvas → remove it
+plt.savefig("chart.png", dpi=64, pad_inches=0)
 plt.close()
