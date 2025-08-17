@@ -7,7 +7,7 @@ import numpy as np
 # Generate synthetic data
 # -----------------------
 np.random.seed(42)
-months = pd.date_range("2023-01-01", periods=12, freq="M").strftime("%b")
+months = pd.date_range("2023-01-01", periods=12, freq="ME").strftime("%b")
 
 segments = ["Premium", "Standard", "Budget"]
 data = []
